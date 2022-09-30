@@ -10,20 +10,29 @@
 
 ### 安装说明
 
-1. 添加kudu用户
+1. root用户执行以下命令
+   
+   ```bash
+   yum install cyrus-sasl-plain 
+   yum install cyrus-sasl-gssapi
+   yum install lsb
+   yum install tree
+   ```
+
+2. 添加kudu用户
    
    ```bash
    adduser kudu
    passwd kudu
    ```
 
-2. 复制install_kudu_1.16.0_release.tar.gz.0-5到安装的相应目录(例如: /home/kudu),并解压缩
+3. 复制install_kudu_1.16.0_release.tar.gz.0-5到安装的相应目录(例如: /home/kudu),并解压缩
    
    ```bash
    cat install_kudu_1.16.0_release.tar.gz.* | tar -zxv
    ```
 
-3. 安装kudu
+4. 安装kudu
    
    ```bash
    cd install_kudu_1.16.0_release
@@ -33,9 +42,9 @@
    脚本第二次要求输入其他机器ip
    ```
 
-4. 其他机器重复1-3步骤.
+5. 其他机器重复2-4步骤.
 
-5. 启动kudu master,每台机器执行以下脚本
+6. 启动kudu master,每台机器执行以下脚本
    
    ```bash
    cd kudu_1.16.0_release
@@ -43,7 +52,7 @@
    ./start_kudu-master.sh
    ```
 
-6. 启动kudu tserver,每台机器执行以下脚本
+7. 启动kudu tserver,每台机器执行以下脚本
    
    ```bash
    ./start_kudu-tserver.sh
@@ -66,14 +75,10 @@
 - clean_kudu-master.sh 清除kudu master的所有数据
 
 - clean_kudu-tserver.sh 清楚kudu tserver的所有数据
-  
-  
 
 ### 查看kudu管理界面
 
 http://xxx.xxx.xxx.xxx:8051
-
-
 
 ### 常用命令
 
